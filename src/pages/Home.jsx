@@ -1,33 +1,64 @@
+import Typewriter from "typewriter-effect"
+import Navbar from "../components/Navbar"
+
 function Home() {
   return (
-    <div className="flex min-h-screen">
+    <div className="relative h-screen w-screen overflow-hidden text-white">
 
-      {/* ฝั่งซ้ายสีดำ */}
-      <div className="w-1/3 bg-black text-white flex flex-col justify-center px-16">
-        <span className="text-yellow-400 text-sm tracking-widest mb-4">
-          WELCOME
-        </span>
+      <Navbar />
 
-        <h1 className="text-5xl font-extrabold leading-tight">
-          We Help to Build <br /> You the Product
-        </h1>
-
-        <p className="mt-6 text-gray-400 text-lg">
-          Business Solution
-        </p>
-
-        <button className="mt-8 bg-yellow-400 text-black px-6 py-3 font-semibold hover:bg-yellow-500 transition">
-          Get in touch
-        </button>
+      {/* Background */}
+      <div className="absolute inset-0 -z-20">
+        <img
+          src="https://picsum.photos/1920/1080"
+          className="w-full h-full object-cover"
+          alt="background"
+        />
       </div>
 
-      {/* ฝั่งขวาเป็นภาพ */}
-      <div className="w-2/3">
-        <img
-          src="https://images.unsplash.com/photo-1557804506-669a67965ba0"
-          alt="workspace"
-          className="w-full h-full object-cover"
-        />
+      <div className="absolute inset-0 bg-black/70 -z-10"></div>
+
+      {/* Content */}
+      <div className="flex items-center h-screen px-8 lg:px-24">
+        <div className="max-w-3xl">
+
+          {/* Typewriter Greeting */}
+          <span className="text-yellow-400 tracking-[0.4em] text-sm font-semibold">
+            <Typewriter
+              options={{
+                strings: ["HELLO", "Welcome to My Portfolio"],
+                autoStart: true,
+                loop: true,
+                delay: 75,
+                deleteSpeed: 40,
+              }}
+            />
+          </span>
+
+          <h1 className="mt-6 text-5xl lg:text-6xl font-extrabold leading-tight">
+            I’m Narathon Nu-muang
+            <br />
+            <span className="text-yellow-400">
+              <Typewriter
+                options={{
+                  strings: [
+                    "Web Developer",
+                    "Frontend Developer",
+                    "React Developer",
+                    "Full-Stack Developer"
+                  ],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </span>
+          </h1>
+
+          <p className="mt-6 text-gray-300 text-base lg:text-lg leading-relaxed max-w-xl">
+            Building modern, scalable and high-performance web experiences.
+          </p>
+
+        </div>
       </div>
 
     </div>
