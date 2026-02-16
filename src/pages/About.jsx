@@ -1,106 +1,94 @@
-import Navbar from "../components/Navbar"
+import { motion } from "framer-motion"
 
 function About() {
   return (
-    <div className="bg-white text-gray-900 min-h-screen">
+    <motion.section
+      id="about"
+      className="bg-gray-100 py-24 px-8 lg:px-24 scroll-mt-24"
 
-      <Navbar />
+    >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      {/* Header Section */}
-      <section className="pt-32 pb-20 bg-gray-50 text-center">
-        <h1 className="text-4xl lg:text-5xl font-extrabold">
-          About Me
-        </h1>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-          Get to know more about who I am and what I do.
-        </p>
-      </section>
+        {/* Left Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: false }}
+        >
+          <img
+            src="https://picsum.photos/600/700"
+            alt="Profile"
+            className="rounded shadow-lg w-full"
+          />
+        </motion.div>
 
-      {/* About Content */}
-      <section className="py-20 px-8 lg:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Right Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: false }}
+        >
+          <h2 className="text-4xl font-semibold mb-6">
+            My Bio
+          </h2>
 
-          {/* Profile Image */}
-          <div className="flex justify-center">
-            <img
-              src="https://picsum.photos/400/500"
-              alt="Profile"
-              className="rounded-2xl shadow-xl w-80"
-            />
+          <p className="text-gray-600 leading-relaxed mb-6">
+            Far far away, behind the word mountains, far from the countries
+            Vokalia and Consonantia, there live the blind texts.
+          </p>
+
+          <p className="text-gray-600 leading-relaxed mb-10">
+            A small river named Duden flows by their place and supplies it
+            with the necessary regelialia.
+          </p>
+
+          {/* Skills */}
+          <div className="space-y-6">
+            {[
+              ["Design", "85%"],
+              ["HTML5", "90%"],
+              ["CSS3", "97%"],
+              ["WordPress", "88%"],
+              ["Bootstrap", "92%"],
+            ].map(([label, percent], index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: false }}
+              >
+                <div className="flex justify-between mb-2 text-sm font-medium">
+                  <span>{label}</span>
+                  <span className="text-green-600">{percent}</span>
+                </div>
+                <div className="w-full bg-gray-300 h-2 rounded-full">
+                  <div
+                    className="bg-green-500 h-2 rounded-full"
+                    style={{ width: percent }}
+                  ></div>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
-          {/* Bio */}
-          <div>
-            <h2 className="text-3xl font-bold mb-6">
-              I’m Narathon Nu-muang
-            </h2>
+          {/* Buttons */}
+          <div className="mt-12 flex gap-4">
+            <button className="px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition">
+              HIRE ME
+            </button>
 
-            <p className="text-gray-600 leading-relaxed mb-6">
-              I am a Full-Stack Developer specializing in building modern,
-              responsive, and scalable web applications using React, Node.js,
-              and Tailwind CSS. I enjoy solving complex problems and turning
-              ideas into real digital experiences.
-            </p>
-
-            <p className="text-gray-600 leading-relaxed">
-              My passion is creating clean UI, smooth user experiences, and
-              high-performance applications that provide real value.
-            </p>
+            <button className="px-8 py-3 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition">
+              DOWNLOAD CV
+            </button>
           </div>
 
-        </div>
-      </section>
+        </motion.div>
 
-      {/* Skills Section */}
-      <section className="py-20 bg-gray-50 px-8 lg:px-24">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          My Skills
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="font-semibold text-lg">React</h3>
-          </div>
-
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="font-semibold text-lg">Node.js</h3>
-          </div>
-
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="font-semibold text-lg">Tailwind CSS</h3>
-          </div>
-
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="font-semibold text-lg">MongoDB</h3>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 px-8 lg:px-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-
-          <div>
-            <h3 className="text-4xl font-extrabold text-yellow-500">3+</h3>
-            <p className="text-gray-600 mt-2">Years Experience</p>
-          </div>
-
-          <div>
-            <h3 className="text-4xl font-extrabold text-yellow-500">20+</h3>
-            <p className="text-gray-600 mt-2">Projects Completed</p>
-          </div>
-
-          <div>
-            <h3 className="text-4xl font-extrabold text-yellow-500">10+</h3>
-            <p className="text-gray-600 mt-2">Happy Clients</p>
-          </div>
-
-        </div>
-      </section>
-
-    </div>
+      </div>
+    </motion.section>
   )
 }
 

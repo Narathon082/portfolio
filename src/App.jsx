@@ -1,17 +1,20 @@
-import { Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
 import Navbar from "./components/Navbar"
-import About from "./pages/About"
-
+import Home from "./pages/Home"
+import { useEffect } from "react"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 function App() {
+    useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true
+    })
+  }, [])
+
   return (
     <>
-      <Navbar /> 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <Home />
     </>
   )
 }

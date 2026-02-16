@@ -1,17 +1,20 @@
 import Typewriter from "typewriter-effect"
 import Navbar from "../components/Navbar"
+import About from "./About"
+import { motion } from "framer-motion"
+import "../index.css"
 
 function Home() {
   return (
-    <div className="relative h-screen w-screen overflow-hidden text-white">
+    <div id="home" className="relative min-h-screen w-full text-white">
 
       <Navbar />
 
-      {/* Background */}
+      {/* Background (ไม่มี animation แล้ว) */}
       <div className="absolute inset-0 -z-20">
         <img
-          src="https://picsum.photos/1920/1080"
-          className="w-full h-full object-cover"
+          src="/images/g0.png"
+          className="w-full h-full object-cover object-center"
           alt="background"
         />
       </div>
@@ -19,11 +22,20 @@ function Home() {
       <div className="absolute inset-0 bg-black/70 -z-10"></div>
 
       {/* Content */}
-      <div className="flex items-center h-screen px-8 lg:px-24">
-        <div className="max-w-3xl">
+      <div className="flex items-center min-h-screen px-8 lg:px-24">
+        <motion.div
+          className="max-w-3xl"
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
 
-          {/* Typewriter Greeting */}
-          <span className="text-yellow-400 tracking-[0.4em] text-sm font-semibold">
+          <motion.span
+            className="text-yellow-400 tracking-[0.4em] text-sm font-semibold"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
             <Typewriter
               options={{
                 strings: ["HELLO", "Welcome to My Portfolio"],
@@ -33,9 +45,14 @@ function Home() {
                 deleteSpeed: 40,
               }}
             />
-          </span>
+          </motion.span>
 
-          <h1 className="mt-6 text-5xl lg:text-6xl font-extrabold leading-tight">
+          <motion.h1
+            className="mt-6 text-5xl lg:text-6xl font-extrabold leading-tight"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
             I’m Narathon Nu-muang
             <br />
             <span className="text-yellow-400">
@@ -52,14 +69,21 @@ function Home() {
                 }}
               />
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-gray-300 text-base lg:text-lg leading-relaxed max-w-xl">
+          <motion.p
+            className="mt-6 text-gray-300 text-base lg:text-lg leading-relaxed max-w-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
             Building modern, scalable and high-performance web experiences.
-          </p>
+          </motion.p>
 
-        </div>
+        </motion.div>
       </div>
+
+      <About />
 
     </div>
   )
