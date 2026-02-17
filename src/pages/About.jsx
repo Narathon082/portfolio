@@ -30,7 +30,7 @@ function About() {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: false }}
         >
-          <h2 className="text-4xl font-semibold mb-6">
+          <h2 className="text-4xl font-semibold mb-6 text-gray-800">
             My Bio
           </h2>
 
@@ -44,45 +44,19 @@ function About() {
             with the necessary regelialia.
           </p>
 
-          {/* Skills */}
-          <div className="space-y-6">
-            {[
-              ["Design", "85%"],
-              ["HTML5", "90%"],
-              ["CSS3", "97%"],
-              ["WordPress", "88%"],
-              ["Bootstrap", "92%"],
-            ].map(([label, percent], index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: false }}
-              >
-                <div className="flex justify-between mb-2 text-sm font-medium">
-                  <span>{label}</span>
-                  <span className="text-green-600">{percent}</span>
-                </div>
-                <div className="w-full bg-gray-300 h-2 rounded-full">
-                  <div
-                    className="bg-green-500 h-2 rounded-full"
-                    style={{ width: percent }}
-                  ></div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
           {/* Buttons */}
           <div className="mt-12 flex gap-4">
             <button className="px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition">
               HIRE ME
             </button>
 
-            <button className="px-8 py-3 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition">
+            <a
+              href="file/Narathon_Nu-muang_CV.pdf"
+              download
+              className="px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
+            >
               DOWNLOAD CV
-            </button>
+            </a>
           </div>
 
         </motion.div>
