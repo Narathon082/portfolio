@@ -5,7 +5,6 @@ function About() {
     <motion.section
       id="about"
       className="bg-gray-100 py-24 px-8 lg:px-24 scroll-mt-24"
-
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -17,7 +16,7 @@ function About() {
           viewport={{ once: false }}
         >
           <img
-            src="https://picsum.photos/600/700"
+            src="/images/g0.png"
             alt="Profile"
             className="rounded shadow-lg w-full"
           />
@@ -49,13 +48,11 @@ function About() {
             <button className="px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition">
               HIRE ME
             </button>
-
-            <a
-              href="file/Narathon_Nu-muang_CV.pdf"
-              download
-              className="px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition"
-            >
-              DOWNLOAD CV
+      
+            <a href="file/Narathon_Nu-muang_CV.pdf" download>
+              <button className="px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition">
+                DOWNLOAD CV
+              </button>
             </a>
           </div>
 
