@@ -13,7 +13,7 @@ function About() {
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           <img
             src="/images/g0.png"
@@ -27,7 +27,7 @@ function About() {
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           <h2 className="text-4xl font-semibold mb-6 text-gray-800">
             My Bio
@@ -45,9 +45,11 @@ function About() {
 
           {/* Buttons */}
           <div className="mt-12 flex gap-4">
-            <button className="px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition">
-              HIRE ME
-            </button>
+            <a href="#contact">
+              <button className="px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition">
+                HIRE ME
+              </button>
+            </a>
       
             <a href="file/Narathon_Nu-muang_CV.pdf" download>
               <button className="px-8 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition">

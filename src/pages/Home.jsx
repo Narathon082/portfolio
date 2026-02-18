@@ -2,6 +2,9 @@ import Typewriter from "typewriter-effect"
 import Navbar from "../components/Navbar"
 import About from "./About"
 import Projects from "./Projects"
+import Resume from "./Resume"
+import Contact from "./Contact"
+import Footer from "../components/Footer"
 import { motion } from "framer-motion"
 import "../index.css"
 
@@ -86,6 +89,9 @@ function Home() {
 
       <About />
       <Projects />
+      <Resume />
+      <Contact />
+      <Footer />
     </div>
   )
 }

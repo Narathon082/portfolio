@@ -41,6 +41,13 @@ function Navbar() {
 
           <li
             className="hover:text-yellow-500 cursor-pointer"
+            onClick={() => scrollToSection("resume")}
+          >
+            Resume 
+          </li>
+
+          <li
+            className="hover:text-yellow-500 cursor-pointer"
             onClick={() => scrollToSection("contact")}
           >
             Contact
