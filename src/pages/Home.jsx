@@ -69,7 +69,7 @@ function Home() {
           >
             <Typewriter
               options={{
-                strings: ["HELLO", "Welcome to My Portfolio"],
+                strings: ["HELLO", "Welcome to My Portfolio"],  
                 autoStart: true,
                 loop: true,
                 delay: 75,
@@ -93,8 +93,7 @@ function Home() {
                   strings: [
                     "Web Developer",
                     "Frontend Developer",
-                    "React Developer",
-                    "Full-Stack Developer"
+                    "React Developer"
                   ],
                   autoStart: true,
                   loop: true,
@@ -115,7 +114,7 @@ function Home() {
             variants={itemVariants}
             className="mt-10 flex gap-6"
           >
-            <a href="#projects" className="px-8 py-3 bg-yellow-400 text-black font-bold rounded-full hover:bg-yellow-300 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-yellow-400/20">
+            <a href="#projects" className="px-8 py-3 border-2 border-white font-bold rounded-full hover:bg-white hover:text-black transition-all hover:scale-105 active:scale-95">
               VIEW PROJECTS
             </a>
             <a href="#contact" className="px-8 py-3 border-2 border-white font-bold rounded-full hover:bg-white hover:text-black transition-all hover:scale-105 active:scale-95">

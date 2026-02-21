@@ -21,11 +21,11 @@ function Footer() {
           {/* LOGO & DESCRIPTION (ฝั่งซ้าย - 6 คอลัมน์) */}
           <div className="md:col-span-6">
             <h2 className="text-3xl font-black mb-6 text-white tracking-tighter uppercase">
-              NARATHON<span className="text-yellow-500">.</span>
+              PORTFOLIO<span className="text-yellow-500">.</span>
             </h2>
             <p className="max-w-md leading-relaxed text-gray-500 text-sm">
-              Industrial Technology student specializing in Software Architecture and Network Engineering. 
-              Bridging the gap between complex infrastructure and elegant code.
+              Industrial technology students, Department of Electronic Engineering Technology, Electronic Technology major. <br />
+              King Mongkut's University of Technology North Bangkok
             </p>
           </div>
 

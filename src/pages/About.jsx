@@ -1,106 +1,132 @@
 import { motion } from "framer-motion"
+import { FileText, Eye, Download } from "lucide-react"
 
 function About() {
-  // Variants สำหรับเนื้อหาด้านขวา (ค่อยๆ โผล่มาทีละบรรทัด)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // เว้นระยะแต่ละองค์ประกอบ 0.2 วินาที
-      },
+      transition: { staggerChildren: 0.15 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } 
+    },
   };
+
+  const fileButtons = [
+    {
+      label: "View Transcript",
+      path: "/file/Narathon_Nu-muang_Transcript.pdf",
+      icon: <FileText size={18} />,
+      primary: true
+    },
+    {
+      label: "View Portfolio / CV",
+      path: "/file/Narathon_Nu-muang_CV.pdf",
+      icon: <Eye size={18} />,
+      primary: false
+    }
+  ];
 
   return (
     <motion.section
       id="about"
-      className="bg-gray-100 py-24 px-8 lg:px-24 scroll-mt-24 overflow-hidden"
+      // พื้นหลังสีสว่างตามที่คุณต้องการ
+      className="bg-[#f8f9fa] py-32 px-8 lg:px-24 scroll-mt-24 overflow-hidden text-gray-900"
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
 
-        {/* Left Image - อนิเมชั่นแบบ Hover Scale และ Smooth Lift */}
+        {/* 📸 Left Image Area */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, x: -100 }}
+          initial={{ opacity: 0, scale: 0.9, x: -40 }}
           whileInView={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 1, ease: "backOut" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="flex justify-center relative group"
+          className="relative group justify-self-center lg:justify-self-start"
         >
+          {/* Decorative Frame - ปรับสีเส้นให้เข้ากับพื้นหลังสว่าง */}
+          <div className="absolute -inset-6 border border-gray-200 rounded-3xl -z-10 translate-x-6 translate-y-6 group-hover:translate-x-3 group-hover:translate-y-3 transition-all duration-700 ease-out" />
           
-          <motion.img
-            whileHover={{ scale: 1.03, y: -10 }}
-            src="/images/g0.png"
-            alt="Profile"
-            className="rounded-2xl shadow-2xl w-full max-w-sm lg:max-w-md object-cover aspect-[4/5] z-10 cursor-pointer"
-          />
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-white">
+            <motion.img
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              src="/images/g0.png"
+              alt="Narathon Nu-muang"
+              className="w-full max-w-sm lg:max-w-md object-cover aspect-[4/5] z-10 cursor-pointer"
+            />
+          </div>
         </motion.div>
 
-        {/* Right Content - อนิเมชั่นแบบค่อยๆ โผล่ (Stagger) */}
+        {/* 📝 Right Content Area */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          className="flex flex-col"
         >
-          <motion.h2 
-            variants={itemVariants}
-            className="text-4xl font-bold mb-6 text-gray-800 flex items-center gap-3"
-          >
-            <span className="w-10 h-1 bg-green-500 rounded-full" />
-            My Bio
-          </motion.h2>
-
-          <motion.p variants={itemVariants} className="text-gray-600 text-lg leading-relaxed mb-6 font-medium">
-            Hi, I'm Narathon Nu-muang <br/>
-            <span className="text-green-600 italic">Industrial Technology Student</span>
-          </motion.p>
-
-          <motion.p variants={itemVariants} className="text-gray-600 leading-relaxed mb-6">
-            I have interned at British International School Phuket, where I worked on enterprise network setup, 
-            system troubleshooting, and data operations. I enjoy solving technical problems, improving system reliability, 
-            and continuously learning about emerging technologies.
-          </motion.p>
-
-          <motion.p variants={itemVariants} className="text-gray-600 leading-relaxed mb-10">
-            My goal is to leverage my background in network infrastructure and IT support to build secure, 
-            efficient systems that empower businesses. I thrive in collaborative environments and am 
-            always looking for new challenges in the world of IT operations.
-          </motion.p>
-
-          {/* Buttons - อนิเมชั่น Hover แบบขยายและมีเงา */}
-          <motion.div variants={itemVariants} className="mt-12 flex flex-wrap gap-4">
-            <a href="#contact">
-              <motion.button 
-                whileHover={{ scale: 1.1, boxShadow: "0px 10px 20px rgba(34, 197, 94, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-3 bg-green-500 text-white font-bold rounded-full transition shadow-lg"
-              >
-                HIRE ME
-              </motion.button>
-            </a>
-      
-            <a href="file/Narathon_Nu-muang_CV.pdf" download>
-              <motion.button 
-                whileHover={{ 
-                  scale: 1.05, 
-                  backgroundColor: "#111827", // สีดำที่เข้มขึ้นเมื่อ Hover
-                  borderColor: "#111827" ,
-                  boxShadow: "0px 10px 20px rgba(34, 197, 94, 0.4)"
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-3 bg-gray-800 text-white border-2 border-gray-800 font-bold rounded-full transition shadow-md"
-              >
-                DOWNLOAD CV
-              </motion.button>
-            </a>
+          <motion.div variants={itemVariants} className="flex items-center gap-4 mb-10">
+            <span className="h-px w-10 bg-yellow-600/50"></span>
+            <span className="text-yellow-600 tracking-[0.5em] text-[10px] font-black uppercase">My Bio</span>
           </motion.div>
 
+          <motion.h2 variants={itemVariants} className="text-6xl lg:text-8xl font-black mb-10 tracking-tighter uppercase leading-[0.85] text-gray-900">
+            Narrathon <br />
+            {/* 🎨 ไล่สีตัวหนังสือใหม่: ใช้โทนเทาเข้มไปเหลืองทองเพื่อให้ดูหรูหราบนพื้นขาว */}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-800 via-yellow-600 to-gray-400">
+              Nu-muang
+            </span>
+          </motion.h2>
+
+          <motion.div variants={itemVariants} className="space-y-6 text-gray-600 text-lg font-medium leading-relaxed max-w-xl">
+            <p>
+              Industrial Technology student at <span className="text-gray-900 font-bold border-b-2 border-yellow-500/30">KMUTNB</span>, 
+              specializing in Electronic Engineering Technology I am passionate about building efficient applications and 
+              solving complex technical problems through code. With a strong foundation in electronic systems, 
+              I enjoy bridging the gap between hardware and software to create innovative digital solutions.
+            </p>
+            <p>
+              continuously learning about emerging technologies. My goal is to leverage my background in network infrastructure 
+              and IT support to build secure, efficient systems that empower businesses. I thrive in collaborative environments 
+              and am always looking for new challenges in the world of IT operations.
+            </p>
+          </motion.div>
+
+          {/* 🔘 Interactive File Buttons - ปรับให้เหมือนกันทั้งสองปุ่ม */}
+          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-16">
+            {fileButtons.map((btn, idx) => (
+              <a 
+                key={idx} 
+                href={btn.path} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group/btn relative"
+              >
+                <motion.button 
+                  whileHover={{ y: -4, backgroundColor: "#1a1a1a" }} // เพิ่มการเปลี่ยนสีเข้มขึ้นเล็กน้อยเมื่อ Hover
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-4 px-6 rounded-xl flex items-center justify-between transition-all duration-300 border border-gray-800 bg-[#0f0f0f] text-[#eab308] font-bold uppercase text-[11px] tracking-widest shadow-lg hover:border-yellow-500/50"
+                >
+                  <span className="flex items-center gap-3">
+                    {btn.icon}
+                    {btn.label}
+                  </span>
+                  <Download size={14} className="opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                </motion.button>
+              </a>
+            ))}
+          </motion.div>
+
+          <motion.p variants={itemVariants} className="mt-8 text-[9px] text-gray-400 uppercase tracking-[0.2em] font-bold">
+            * Documents open in new tab for review before download
+          </motion.p>
         </motion.div>
 
       </div>
