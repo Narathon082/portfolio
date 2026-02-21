@@ -40,7 +40,7 @@ function Projects() {
           >
             <span className="h-[2px] w-12 bg-yellow-500"></span>
             <span className="text-yellow-500 tracking-[0.3em] text-xs font-black uppercase">
-              Portfolio
+              Projects
             </span>
           </motion.div>
           
