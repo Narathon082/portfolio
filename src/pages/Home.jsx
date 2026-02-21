@@ -9,7 +9,6 @@ import Footer from "../components/Footer"
 import { motion } from "framer-motion"
 import "../index.css"
 
-
 function Home() {
   // สร้าง Variants สำหรับ Container เพื่อคุมลำดับการเล่นแอนิเมชันลูกๆ
   const containerVariants = {
@@ -48,7 +47,7 @@ function Home() {
           }}
           viewport={{ once: true }} 
 
-          src="/portfolio/images/gif1.gif" 
+          src="images/gif1.gif" 
           className="w-full h-full object-cover object-center"
           alt="background"
         />

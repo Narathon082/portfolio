@@ -59,7 +59,7 @@ function Resume() {
           <motion.div 
             initial={{ width: 0 }}
             whileInView={{ width: "80px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             className="h-1.5 bg-yellow-500 mx-auto mt-4 rounded-full"
           />
@@ -72,7 +72,7 @@ function Resume() {
             className="lg:col-span-4 relative group hidden lg:block"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
             
