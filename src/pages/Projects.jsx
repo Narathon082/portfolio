@@ -20,12 +20,12 @@ function Projects() {
 
   return (
     <section
-      id="portfolio"
+      id="projects"
       className="bg-gray-100 py-24 px-8 lg:px-24 scroll-mt-24"
     >
-      <div className="min-h-screen bg-gray-900 text-white p-10">
+      <div className="max-w-7xl mx-auto">
 
-        <h2 className="text-3xl font-bold mb-8 text-center">
+        <h2 className="text-3xl font-bold mb-8 text-center text-gray-700">
           My Projects
         </h2>
 
