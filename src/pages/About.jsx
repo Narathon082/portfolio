@@ -19,20 +19,26 @@ function About() {
     },
   };
 
-  const fileButtons = [
-    {
-      label: "View Transcript",
-      path: "/file/Narathon_Nu-muang_Transcript.pdf",
-      icon: <FileText size={18} />,
-      primary: true
-    },
-    {
-      label: "View Portfolio / CV",
-      path: "/file/Narathon_Nu-muang_CV.pdf",
-      icon: <Eye size={18} />,
-      primary: false
-    }
-  ];
+const fileButtons = [
+  {
+    label: "View Transcript",
+    // เพิ่ม /portfolio นำหน้า path เดิม
+    path: "/portfolio/file/Narathon_Nu-muang_Transcript.pdf", 
+    target: "_blank",
+    rel: "noopener noreferrer",
+    icon: <FileText size={18} />,
+    primary: true
+  },
+  {
+    label: "View Portfolio / CV",
+    // เพิ่ม /portfolio นำหน้าเช่นกัน
+    path: "/portfolio/file/Narathon_Nu-muang_CV.pdf", 
+    target: "_blank",
+    rel: "noopener noreferrer",
+    icon: <Eye size={18} />,
+    primary: false
+  }
+];
 
   return (
     <motion.section
@@ -55,7 +61,7 @@ function About() {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              src="/images/g0.png"
+              src="./images/g0.png"
               alt="Narathon Nu-muang"
               className="w-full max-w-sm lg:max-w-md object-cover aspect-[4/5] z-10 cursor-pointer"
             />

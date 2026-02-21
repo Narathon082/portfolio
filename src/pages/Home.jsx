@@ -36,16 +36,23 @@ function Home() {
 
       <Navbar />
 
-      {/* Background - เพิ่มแอนิเมชันตอนโหลดหน้าเว็บให้ค่อยๆ Zoom out ช้าๆ */}
-      <div className="absolute inset-0 -z-20">
+      <div className="fixed inset-0 w-full h-full -z-50 overflow-hidden">
         <motion.img
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          src="/images/g0.png"
+
+          initial={{ scale: 1.2, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ 
+            duration: 2, 
+            ease: [0.16, 1, 0.3, 1], 
+          }}
+          viewport={{ once: true }} 
+
+          src="/portfolio/images/gif1.gif" 
           className="w-full h-full object-cover object-center"
           alt="background"
         />
+        {/* เพิ่ม Overlay จางๆ เพื่อให้ตัวหนังสืออ่านง่ายขึ้นเหมือนหน้า Selected Works */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       <div className="absolute inset-0 bg-black/70 -z-10"></div>

@@ -28,7 +28,7 @@ function Resume() {
       date: "2024 - Present",
       gpa: "2.63", 
       link: "https://www.kmutnb.ac.th/",
-      image: "/images/kmutnb.jpg" 
+      image: "./images/kmutnb.jpg" 
     },
     {
       degree: "High Vocational Certificate",
@@ -37,7 +37,7 @@ function Resume() {
       date: "2021 - 2023",
       gpa: "3.87", 
       link: "http://www.ptc.ac.th/",
-      image: "/images/phuket.jpg"
+      image: "./images/phuket.jpg"
     }
   ];
 
@@ -75,7 +75,7 @@ function Resume() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="absolute -inset-4 border-2 border-yellow-500/10 rounded-2xl -z-10 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
+            
             <div className="rounded-2xl shadow-2xl w-full aspect-[3/4] overflow-hidden bg-black relative border border-gray-800">
               <iframe
                 src="https://player.vimeo.com/video/507820343?muted=1&loop=1&background=1&autoplay=1&app_id=122963"
