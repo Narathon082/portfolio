@@ -50,8 +50,6 @@ function About() {
           viewport={{ once: true }}
           className="relative group justify-self-center lg:justify-self-start"
         >
-          {/* Decorative Frame - ปรับสีเส้นให้เข้ากับพื้นหลังสว่าง */}
-          <div className="absolute -inset-6 border border-gray-200 rounded-3xl -z-10 translate-x-6 translate-y-6 group-hover:translate-x-3 group-hover:translate-y-3 transition-all duration-700 ease-out" />
           
           <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-white">
             <motion.img
