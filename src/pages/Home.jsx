@@ -9,6 +9,7 @@ import Footer from "../components/Footer"
 import { motion } from "framer-motion"
 import "../index.css"
 
+
 function Home() {
   // สร้าง Variants สำหรับ Container เพื่อคุมลำดับการเล่นแอนิเมชันลูกๆ
   const containerVariants = {
