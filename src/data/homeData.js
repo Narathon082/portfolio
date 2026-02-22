@@ -15,6 +15,6 @@ export const homeData = {
   },
   assets: {
     /* ✅ แก้เป็นแบบนี้เพื่อให้ localhost หาเจอ */
-    backgroundGif: "./images/gif1.gif" 
+    backgroundGif: "images/gif1.gif" 
   }
 };
