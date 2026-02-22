@@ -1,0 +1,17 @@
+/* src/css/Skills.css */
+@reference "../index.css";
+
+.skills-container {
+  @apply bg-[#0f0f0f] py-24 px-8 text-white min-h-screen flex flex-col justify-center overflow-hidden;
+}
+
+.skill-card {
+  /* ลบ group ออกจากตรงนี้เพื่อป้องกันหน้าขาว */
+  @apply bg-[#141414] p-6 md:p-8 rounded-2xl flex flex-col items-center justify-center 
+         border border-gray-800/50 hover:border-yellow-500/50 transition-all duration-300;
+}
+
+.vertical-label-container {
+  @apply hidden lg:flex items-center gap-4 [writing-mode:vertical-lr] rotate-180 
+         border-l-4 border-yellow-500 py-6 pl-4 h-fit;
+}

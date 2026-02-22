@@ -39,6 +39,8 @@ function Footer() {
               <li className="hover:text-white transition-colors cursor-pointer"><a href="#about">About</a></li>
               <li className="hover:text-white transition-colors cursor-pointer"><a href="#skills">Skills</a></li>
               <li className="hover:text-white transition-colors cursor-pointer"><a href="#projects">Projects</a></li>
+              <li className="hover:text-white transition-colors cursor-pointer"><a href="#resume">Resume</a></li>
+              <li className="hover:text-white transition-colors cursor-pointer"><a href="#contact">Contact</a></li>
             </ul>
           </div>
 

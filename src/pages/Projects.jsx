@@ -1,32 +1,14 @@
-import projects from "../data/projects"
+// src/pages/Projects.jsx
+import projects from "../data/projects" // ✅ ตรวจสอบว่าในไฟล์ projects.js มีการ export default
 import ProjectCard from "../components/ProjectCard"
 import { motion } from "framer-motion"
+import { fastFadeUp } from "../data/animations" // ✅ ใช้แอนิเมชันชุดที่เร็วขึ้น
 
 function Projects() {
-  // Variants สำหรับการทำ Stagger animation ให้การ์ดค่อยๆ โผล่มา
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    }
-  }
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-    }
-  }
-
   return (
     <section
       id="projects"
-      // เปลี่ยนกลับเป็นสีดำเข้มตามที่คุณต้องการเพื่อให้เข้ากับหน้า Home
+      // ✅ ใช้สีพื้นหลังสว่างตามที่คุณเขียนมา (หรือเปลี่ยนเป็น #0f0f0f ถ้าต้องการให้เข้ากับหน้า Home)
       className="bg-[#f8f9fa] py-32 px-8 lg:px-24 scroll-mt-24 text-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
@@ -42,7 +24,7 @@ function Projects() {
           >
             <span className="h-[2px] w-12 bg-yellow-500"></span>
             <span className="text-yellow-500 tracking-[0.5em] text-xs font-black uppercase">
-              Project
+              Project & Portfolio
             </span>
           </motion.div>
           
@@ -61,7 +43,7 @@ function Projects() {
         {/* 📁 Projects Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
-          variants={containerVariants}
+          variants={fastFadeUp.container} // ✅ เปลี่ยนมาใช้ fastFadeUp
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
@@ -69,16 +51,14 @@ function Projects() {
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              variants={cardVariants}
+              variants={fastFadeUp.item} // ✅ เปลี่ยนมาใช้ fastFadeUp
               className="group h-full"
             >
-              {/* ส่งข้อมูลโปรเจกต์ไปยัง ProjectCard ที่รองรับ Swiper และ Video */}
               <ProjectCard project={project} />
             </motion.div>
           ))}
         </motion.div>
 
-        {/* ข้อความเพิ่มเติมท้ายส่วน */}
         <motion.p 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

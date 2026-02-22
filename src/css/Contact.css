@@ -1,0 +1,24 @@
+/* src/css/Contact.css */
+@reference "../index.css";
+
+.contact-container {
+  @apply bg-[#f8f9fa] py-28 px-8 lg:px-24 scroll-mt-24 text-gray-800;
+}
+
+.contact-form-card {
+  @apply space-y-8 bg-white p-10 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100;
+}
+
+.contact-input {
+  @apply w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 outline-none 
+         focus:border-yellow-600 focus:bg-white transition-all;
+}
+
+.contact-label {
+  @apply text-xs font-bold uppercase tracking-widest text-gray-400 ml-1;
+}
+
+.contact-btn {
+  @apply w-full py-4 bg-yellow-600 text-white font-bold rounded-xl shadow-lg 
+         shadow-yellow-200 transition-all uppercase tracking-widest text-sm;
+}
