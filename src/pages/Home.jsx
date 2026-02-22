@@ -76,11 +76,11 @@ function Home() {
             {homeData.description}
           </motion.p>
 
-          <motion.div variants={slowFadeUp.item} className="mt-10 flex gap-6">
-            <a href={homeData.buttons.primary.link} className="home-btn">
+          <motion.div variants={slowFadeUp.item} className="mt-10 flex gap-6 ">
+            <a href={homeData.buttons.primary.link} className="home-btn bg-yellow-300/80">
               {homeData.buttons.primary.label}
             </a>
-            <a href={homeData.buttons.secondary.link} className="home-btn">
+            <a href={homeData.buttons.secondary.link} className="home-btn bg-yellow-300/80">
               {homeData.buttons.secondary.label}
             </a>
           </motion.div>
