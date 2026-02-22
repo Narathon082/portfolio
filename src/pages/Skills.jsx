@@ -4,6 +4,7 @@ import { skillsData } from "../data/skillsData";
 import { fastFadeUp } from "../data/animations"; // ✅ เปลี่ยนเป็น fastFadeUp
 import "../css/Skills.css";
 
+
 const IconRenderer = ({ name, colorClass }) => {
   const icons = {
     Bot: <Bot className={`w-full h-full ${colorClass}`} />,
