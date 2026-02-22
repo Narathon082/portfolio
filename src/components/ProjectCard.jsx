@@ -2,14 +2,13 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import { Github, ExternalLink, Maximize2, X } from 'lucide-react';
+import { Github, ExternalLink, Maximize2, X, FileText } from 'lucide-react'; // เพิ่ม FileText Icon
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 function ProjectCard({ project }) {
-  // สร้าง State สำหรับเก็บข้อมูลสิ่งที่กำลังขยาย (อาจเป็น path รูป หรือ path วิดีโอ)
   const [zoomContent, setZoomContent] = useState(null);
 
   return (
@@ -36,17 +35,28 @@ function ProjectCard({ project }) {
             </SwiperSlide>
           ))}
 
-          {/* ส่วนของวิดีโอ MP4 */}
+          {/* ส่วนของวิดีโอ */}
           {project.video && (
             <SwiperSlide className="relative">
-              <video
-                src={project.video}
-                className="w-full h-full object-cover"
-                autoPlay muted loop playsInline
-              />
-              {/* ปุ่มขยายวิดีโอ */}
+              <video src={project.video} className="w-full h-full object-cover" autoPlay muted loop playsInline />
               <button 
                 onClick={() => setZoomContent({ type: 'video', src: project.video })}
+                className="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10 border border-white/10"
+              >
+                <Maximize2 size={16} />
+              </button>
+            </SwiperSlide>
+          )}
+
+          {/* 📄 ส่วนของ PDF (แสดงเป็นพรีวิวไอคอน) */}
+          {project.pdf && (
+            <SwiperSlide className="relative flex items-center justify-center bg-gray-900">
+              <div className="text-center">
+                <FileText size={48} className="text-yellow-500 mx-auto mb-2" />
+                <p className="text-white text-xs font-bold uppercase tracking-widest">Document / PDF</p>
+              </div>
+              <button 
+                onClick={() => setZoomContent({ type: 'pdf', src: project.pdf })}
                 className="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10 border border-white/10"
               >
                 <Maximize2 size={16} />
@@ -64,10 +74,16 @@ function ProjectCard({ project }) {
         <p className="text-gray-400 text-sm mb-8 leading-relaxed line-clamp-3">
           {project.description}
         </p>
-        {/* ... ส่วน Tech Stack และ Links เหมือนเดิม ... */}
+        
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-2 mt-auto">
+            {project.tech.map((t, i) => (
+                <span key={i} className="text-[10px] bg-white/5 border border-white/10 px-2 py-1 rounded text-gray-400 font-bold uppercase tracking-widest">{t}</span>
+            ))}
+        </div>
       </div>
 
-      {/* 🔍 Zoom Modal (Lightbox สำหรับทั้งภาพและวิดีโอ) */}
+      {/* 🔍 Zoom Modal */}
       <AnimatePresence>
         {zoomContent && (
           <motion.div 
@@ -81,18 +97,14 @@ function ProjectCard({ project }) {
             
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-              className="max-w-5xl w-full aspect-video flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()} // ป้องกันการปิดเมื่อคลิกที่ตัวสื่อ
+              className="max-w-5xl w-full h-[80vh] flex items-center justify-center bg-[#141414] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
             >
-              {zoomContent.type === 'image' ? (
-                <img src={zoomContent.src} className="max-w-full max-h-full rounded-xl shadow-2xl border border-white/10" alt="" />
-              ) : (
-                <video 
-                  src={zoomContent.src} 
-                  controls 
-                  autoPlay 
-                  className="max-w-full max-h-full rounded-xl shadow-2xl border border-white/10"
-                />
+              {zoomContent.type === 'image' && (
+                <img src={zoomContent.src} className="max-w-full max-h-full object-contain" alt="" />
+              )}
+              {zoomContent.type === 'video' && (
+                <video src={zoomContent.src} controls autoPlay className="max-w-full max-h-full" />
               )}
             </motion.div>
           </motion.div>
