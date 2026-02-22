@@ -68,5 +68,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+:root {
+  font-family: 'Plus Jakarta Sans', sans-serif; /* 👈 บังคับใช้ Font นี้ทั้งโปรเจกต์ */
+}
+
+body {
+  @apply bg-black text-white antialiased;
+}
+
 @import "tailwindcss";
 @plugin "daisyui";
