@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import { aboutData } from "../data/aboutData"; 
 import { slowFadeUp } from "../data/animations"; 
-
 import "../css/About.css";
 
 function About() {
