@@ -32,7 +32,7 @@ const projects = [
     id: 5,
     title: "การแข่งขันทักษะวิชาชีพและทักษะพื้นฐานระดับ สถานศึกษา",
     description: "ทักษะการจัดการ Cloud Computing, การพัฒนาโครงสร้างพื้นฐานผ่าน DevOps, และการจัดการระบบเครือข่ายความปลอดภัย",
-    images: ["./imgporject/CCI10102566_0006.jpg","./imgporject/FB_IMG_1700269782884.jpg"],                                    
+    images: ["./imgporject/FB_IMG_1700269782884.jpg","./imgporject/CCI10102566_0006.jpg"],                                    
     tech: ["Cloud Computing", "DevOps", "Network Security"],
   },
     {
@@ -54,7 +54,7 @@ const projects = [
     title: "Project Game Mortal Edge",
     description: "Project ระดับปวส ทำ Animation และก็ปั้นโมเดลต่างๆภายในตัวเกมแนว Action RPG ที่มีเนื้อเรื่องเกี่ยวกับการผจญภัยในโลกแฟนตาซีที่เต็มไปด้วยอันตรายและความลึกลับ ผู้เล่นจะได้รับบทเป็นนักรบที่ต้องต่อสู้กับศัตรูและสำรวจดินแดนต่างๆเพื่อค้นหาความลับและความจริงที่ซ่อนอยู่ในโลกของ Mortal Edge",
     video: "./imgporject/Mortal Edge Trailer.mp4",
-    tech: ["React", "Express", "JWT"],
+    tech: ["unreal engine 5", "3D modeling", "animation", "game design"],
   }
 ];
 
