@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import { Github, ExternalLink, Maximize2, X, FileText } from 'lucide-react'; // เพิ่ม FileText Icon
+import { Github, ExternalLink, Maximize2, X } from 'lucide-react'; 
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -41,22 +41,6 @@ function ProjectCard({ project }) {
               <video src={project.video} className="w-full h-full object-cover" autoPlay muted loop playsInline />
               <button 
                 onClick={() => setZoomContent({ type: 'video', src: project.video })}
-                className="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10 border border-white/10"
-              >
-                <Maximize2 size={16} />
-              </button>
-            </SwiperSlide>
-          )}
-
-          {/* 📄 ส่วนของ PDF (แสดงเป็นพรีวิวไอคอน) */}
-          {project.pdf && (
-            <SwiperSlide className="relative flex items-center justify-center bg-gray-900">
-              <div className="text-center">
-                <FileText size={48} className="text-yellow-500 mx-auto mb-2" />
-                <p className="text-white text-xs font-bold uppercase tracking-widest">Document / PDF</p>
-              </div>
-              <button 
-                onClick={() => setZoomContent({ type: 'pdf', src: project.pdf })}
                 className="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity z-10 border border-white/10"
               >
                 <Maximize2 size={16} />
