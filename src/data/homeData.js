@@ -14,6 +14,7 @@ export const homeData = {
     secondary: { label: "CONTACT ME", link: "#contact" }
   },
   assets: {
-    backgroundGif: "images/gif1.gif"
+    /* ✅ แก้เป็นแบบนี้เพื่อให้ localhost หาเจอ */
+    backgroundGif: "images/gif1.gif" 
   }
 };

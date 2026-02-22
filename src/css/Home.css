@@ -1,20 +1,33 @@
-/* src/css/Home.css */
-@reference "../index.css"; /* ✅ แก้จาก ../../ เป็น ../ เพื่อให้หาไฟล์เจอ */
+/* 1. อ้างอิงไฟล์หลักเพื่อให้ @apply ทำงานได้ (ถอยหลัง 1 ก้าวจากโฟลเดอร์ css) */
+@reference "../index.css"; 
 
+/* 2. การจัดเลเยอร์หน้า Home */
 .home-container {
   @apply relative min-h-screen w-full text-white overflow-x-hidden;
+  /* 💡 กำหนด Font หลักให้เหมือนกันตามที่คุณต้องการ */
+  font-family: 'Plus Jakarta Sans', sans-serif; 
 }
 
+/* 3. Overlay สำหรับทับ GIF ให้ตัวหนังสืออ่านง่ายขึ้น */
 .home-overlay {
-  @apply absolute inset-0 bg-black/40;
+  @apply absolute inset-0 bg-black/40 backdrop-blur-[1px];
 }
 
+/* 4. เลเยอร์สีดำเสริมเพื่อความลึก (อยู่หน้า GIF แต่อยู่หลัง Content) */
 .home-bg-layer {
   @apply absolute inset-0 bg-black/70 -z-10;
 }
 
+/* 5. สไตล์ปุ่มกดที่ปรับให้สมูทขึ้น */
 .home-btn {
   @apply px-8 py-3 border-2 border-white font-bold rounded-full 
-         hover:bg-white hover:text-black transition-all 
-         hover:scale-105 active:scale-95 text-center;
+         text-center transition-all duration-300;
+}
+
+.home-btn:hover {
+  @apply bg-white text-black scale-105;
+}
+
+.home-btn:active {
+  @apply scale-95;
 }

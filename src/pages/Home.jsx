@@ -8,17 +8,21 @@ import Resume from "./Resume"
 import Contact from "./Contact"
 import Footer from "../components/Footer"
 import { homeData } from "../data/homeData"
-import { slowFadeUp, bgZoomEffect } from "../data/animations" // ใช้ไฟล์แอนิเมชันที่แยกไว้
+import { slowFadeUp, bgZoomEffect } from "../data/animations"
 import "../css/Home.css"
 
 function Home() {
   return (
-    <div id="home" className="home-container font-sans"> {/* 👈 ใช้ Font เดียวกันทั้งหมด */}
+    <div id="home" className="home-container font-sans">
       <Navbar />
+
       {/* 🌌 Background Layer */}
       <div className="fixed inset-0 w-full h-full -z-50 overflow-hidden">
         <motion.img
-          {...bgZoomEffect}
+          initial={bgZoomEffect.initial}
+          whileInView={bgZoomEffect.animate}
+          transition={bgZoomEffect.transition}
+          viewport={{ once: true }}
           src={homeData.assets.backgroundGif} 
           className="w-full h-full object-cover object-center"
           alt="background"
@@ -65,7 +69,6 @@ function Home() {
             </span>
           </motion.h1>
 
-          {/* คำอธิบาย */}
           <motion.p
             className="mt-8 text-gray-300 text-lg lg:text-xl font-medium leading-relaxed max-w-2xl border-l-4 border-yellow-400/50 pl-6"
             variants={slowFadeUp.item}
@@ -73,7 +76,6 @@ function Home() {
             {homeData.description}
           </motion.p>
 
-          {/* ปุ่มกด */}
           <motion.div variants={slowFadeUp.item} className="mt-10 flex gap-6">
             <a href={homeData.buttons.primary.link} className="home-btn">
               {homeData.buttons.primary.label}
@@ -82,9 +84,10 @@ function Home() {
               {homeData.buttons.secondary.label}
             </a>
           </motion.div>
-
         </motion.div>
       </div>
+
+      {/* Sections ต่อท้าย */}
       <About />
       <Skills />
       <Projects />
