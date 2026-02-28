@@ -6,8 +6,8 @@ function Footer() {
 
   // ลิงก์ส่วนตัวของคุณที่ส่งมา
   const socialLinks = {
-    github: "https://github.com/Narathon082/portfolio",
-    linkedin: "https://www.linkedin.com/in/%E0%B8%99%E0%B8%A3%E0%B8%B2%E0%B8%98%E0%B8%A3-%E0%B8%AB%E0%B8%99%E0%B8%B9%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87-0ab0773aa/",
+    github: "https://github.com/Narathon082",
+    linkedin: "https://www.linkedin.com/in/narathon-numuang/",
     instagram: "#" 
   };
 
